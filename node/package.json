@@ -1,0 +1,18 @@
+{
+  "name": "angularapi",
+  "version": "1.0.0",
+  "description": "Servidor de Api en Node y Angular",
+  "author": "Jonathan Bustos Ramos",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "~3.x",
+    "mongoose": "^6.4.4",
+    "nodemon": "^2.0.19"
+  },
+  "main": "servidor.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  }
+}

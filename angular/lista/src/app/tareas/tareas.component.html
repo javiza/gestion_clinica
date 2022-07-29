@@ -1,0 +1,75 @@
+
+
+  <div class='row mt-4'>
+    <div class='col-6 col-md-5 bg-success '>
+      <h4 >Registro de Pacientes</h4>
+      <div class="input-group mb-2">
+
+        <span class='input-group-text' id='basic-addon1'>
+          <p> ingreses nombre: </p>
+        </span>
+        <input type='text' class='form-control' placeholder='Nombre completo' #nuevoNombre required />
+      </div>
+      <div class="input-group">
+
+        <span class='input-group-text' id='basic-addon1'>
+          <p> Rut: </p>
+        </span>
+        <input type='text' class='form-control' placeholder='12.345.678-9' #rut required />
+      </div>
+      <div class="input-group">
+
+        <span class='input-group-text' id='basic-addon1'>
+          <p> Fecha de Nacimiento: </p>
+        </span>
+        <input type='text' class='form-control' placeholder='00/00/0000' #fechaNacimiento required />
+      </div>
+
+      <div class="input-group mb-2">
+
+        <span class='input-group-text' id='basic-addon1'>
+          <p> Fecha Ingreso: </p>
+        </span>
+        <input type='text' class='form-control' placeholder='00/00/0000' #nuevoIngreso required />
+      </div>
+      <div class="input-group mb-2">
+
+        <span class='input-group-text' id='basic-addon1'>
+          <p> Dirección: </p>
+        </span>
+        <input type='text' class='form-control' placeholder='mi direccion 1234' #nuevoDireccion required />
+      </div>
+      <div class="input-group mb-2">
+
+        <span class='input-group-text' id='basic-addon1'>
+          <p>Telefono: </p>
+        </span>
+        <input type='text' class='form-control' placeholder='91234567' #nuevoTelefono required />
+      </div>
+
+      <div>
+        <button
+          (click)="crearRegistro(nuevoNombre, rut, fechaNacimiento, nuevoIngreso, nuevoDireccion, nuevoTelefono)">Crear</button>
+
+      </div>
+
+    </div>
+
+    <div class="col ">
+      <div *ngIf="!error">
+        <ul class="list-unstyled " *ngIf="tareas && tareas.length > 0">
+          <li *ngFor="let item of tareas">
+            <app-tarea-individual [tareaInfo]="item" (cambioTarea)="actualizar()"></app-tarea-individual>
+          </li>
+        </ul>
+        <div *ngIf="!tareas || tareas.length <= 0">
+          <h1>Lista vacia</h1>
+          <hr>
+        </div>
+    </div>
+  </div>
+
+<div *ngIf="error" class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exlamation-sign" aria-hidden="true"></span>
+  <span class="sr-only"></span> Error: Aplicación no Disponible
+</div>
